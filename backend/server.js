@@ -17,6 +17,8 @@ app.use(express.json());
 
 
 //Linking routes
+console.log("Sasa");
+console.log("here"+ process.env.EXAMPLE);
 app.use(require('./router/auth'));
 
 
