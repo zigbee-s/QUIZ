@@ -1,13 +1,103 @@
 body {
-  margin: 0;
+  margin: auto auto;
+  min-width: 400px;
+  /* background-image: url(\quiz-mern-main\bg.jpg); */
+  background-color: cornsilk;
+  align-content: center;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  align-content: center;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* #root
+{
+  background-color: green;
+  align-items: center center;
+  margin: 50% auto;
+  height: auto;
+  padding: 30px;
+  width: 100%;
+  
+} */
+
+.nav
+{
+  /* border: 1px solid #121314; */
+    float: right;
+    overflow: hidden;
+    width:100%;
+    text-align: right;
+    padding-bottom: 20px;
+    justify-content: space-between;
+    margin-right: 55px;
+
+}
+/* .nav a{
+  padding: 10px;
+  color: red;
+} */
+/* .container
+{
+  padding: 10px;
+  min-width: 400px
+} */
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 18px;
+  margin: 8px auto;
+  margin-left: 11px;
+  border: none;
+  cursor: pointer;
+  min-width: 400px;
+  border-radius: 14px;
+  /* align-items: center;
+  align-content: center;
+  justify-content: center;
+  left: 50%; */
+}
+/* button:hover {
+  opacity: 1.2;
+} */
+input[type=text], input[type=password] {
+  min-width: 400px;
+  padding: 12px 20px;
+  margin: 8px 42.5em;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  align-content: center;
+  text-align: center;
+}
+h1{
+  text-align: center;
+  text-transform: uppercase;
+  padding: 20px 0;
+  line-height: 20px;
+  
+}
+a{
+  text-decoration: none;
+  text-align: center;
+  font-weight: 5px;
+
+  
+}
+
+.nav a:active
+{
+  background-color: #04AA6D;
+}
+.register{
+  align-items: center;
+
+  margin-left: 34.7em;
 }

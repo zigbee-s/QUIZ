@@ -34,24 +34,27 @@ const Signin = () => {
         <>
             <h1>Login</h1>
             <form method = "POST">
-                    <div> 
+            <div className='container'>
                         <label htmlFor ="email"></label>
-                        <input type = "text" name="email" placeholder="Your Email ?" autoComplete= "off" 
+                        <input type = "text" name="email" placeholder="Enter Email " autoComplete= "off" 
                             value = {email}
                             onChange = {(e)=> setEmail(e.target.value)}
                         />
                     </div>
-
-                    <div> 
+                    <div className='container'> 
                         <label htmlFor ="password"></label>
-                        <input type = "password" name="password" placeholder="Your Password ?" autoComplete= "off" 
+                        <input type = "password" name="password" placeholder="Enter Password " autoComplete= "off" 
                             value = {password}
                             onChange = {(e) => setPassword(e.target.value)} 
                         />
                     </div>
+                    <div className='register'>
                     <button type="submit" name="signup" onClick={loginUser}>Login</button>
-                    <NavLink to="/register">Create an Account</NavLink>
+                    <br />
+                    <NavLink to="/register" style={{marginLeft:"17px"}}>Create an Account</NavLink>
+                    </div>
                 </form>
+                
         </>
     )
 }

@@ -46,11 +46,12 @@ const Signup = () => {
 
     return (
         <>
+            <h1>Sign Up</h1>
             <div className = "signup">
                 <form method="POST">
                     <div> 
                         <label htmlFor ="name"></label>
-                        <input type = "text" name="name" placeholder="Your Name ?" autoComplete= "off" 
+                        <input type = "text" name="name" placeholder="Your Name " autoComplete= "off" 
                             value = {user.name}
                             onChange = {handleInputs} 
                         />
@@ -58,7 +59,7 @@ const Signup = () => {
 
                     <div> 
                         <label htmlFor ="email"></label>
-                        <input type = "text" name="email" placeholder="Your Email ?" autocpmlete= "off" 
+                        <input type = "text" name="email" placeholder="Your Email " autocpmlete= "off" 
                             value = {user.email}
                             onChange = {handleInputs} 
                         />
@@ -66,7 +67,7 @@ const Signup = () => {
 
                     <div> 
                         <label htmlFor ="password"></label>
-                        <input type = "password" name="password" placeholder="Your Password ?" autocpmlete= "off" 
+                        <input type = "password" name="password" placeholder="Your Password " autocpmlete= "off" 
                             value = {user.password}
                             onChange = {handleInputs} 
                         />
@@ -74,12 +75,14 @@ const Signup = () => {
 
                     <div> 
                         <label htmlFor ="cpassword"></label>
-                        <input type = "password" name="cpassword" placeholder="Your Confirm Password ?" autocpmlete= "off" 
+                        <input type = "password" name="cpassword" placeholder="Confirm Password " autocpmlete= "off" 
                             value = {user.cpassword}
                             onChange = {handleInputs} 
                         />
                     </div>
+                    <div className='register'>
                     <button type="submit" name="signup" onClick = {PostData}>Register</button>
+                    </div>
                 </form>
             </div>
         </>
