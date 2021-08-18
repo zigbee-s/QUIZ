@@ -9,6 +9,7 @@ const userSchema= new mongoose.Schema({
     },
     email:{
         type: String,
+        unique: true,
         required: true
     },
     password:{
@@ -36,6 +37,14 @@ const userSchema= new mongoose.Schema({
             }
         }
     ],
+    score: {
+        type: Number,
+        default:0
+    },
+    quizEnded: {
+        type: Boolean,
+        default:false
+    },
     date: {
         type: Date,
         default: Date.now
@@ -70,9 +79,11 @@ userSchema.methods.generateAuthToken = async function(){
     }
 }
 
-userSchema.methods.addAnswer = async function(answer){
+userSchema.methods.addAnswer = async function(answer, newScore, quizEnded){
     try{
         this.answers = this.answers.concat({answer:answer});
+        this.score = newScore;
+        this.quizEnded = quizEnded;
         await this.save();
     }catch(err){
         console.log(err);

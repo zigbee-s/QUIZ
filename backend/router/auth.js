@@ -31,12 +31,12 @@ router.post('/signin', async(req,res)=>{
 
                                 
             if(!isMatch){
-                return res.status(422).json({error: "Invalid Credentials"});
+                return res.status(422).json({error: "The Email Id or the password entered are wrong"});
             }else{
                 return res.status(201).json({message:"Succesfull Login"});
             }
         }else{
-            return res.status(422).json({error: "Invalid Credentials"});
+            return res.status(422).json({error: "The Email Id or the password entered are wrong"});
         }
 
     }catch(err){
@@ -49,12 +49,12 @@ router.post('/register', async (req,res)=>{
     const {name,email,password,cpassword} = req.body;
     
     if(!name || !email || !password || !cpassword){
-        return res.status(422).json({error: "Invalid Credentials"});
+        return res.status(422).json({error: "Incomplete Credentials"});
     }
     try{
         const userExist = await User.findOne({email:email})
          if(userExist){
-            return res.status(422).json({error:"User Exists"});
+            return res.status(422).json({error:"Email already registered"});
         }else if(password != cpassword){
             return res.status(422).json({error: "Password doesn't match"});
         }else{
@@ -76,7 +76,7 @@ router.get('/quiz', authenticate, (req,res)=>{
 
 router.post('/answer', async (req,res)=>{
     try{
-        const {email, answer} = req.body;
+        const {email, answer, newScore,quizEnded} = req.body;
         
         if(!email || !answer){
             return res.status(400).json({error: "Incomplete Details"});
@@ -84,8 +84,8 @@ router.post('/answer', async (req,res)=>{
         
         const userLogin = await User.findOne({email:email});
         if(userLogin){
-            const added = await userLogin.addAnswer(answer);                  
-            return res.status(201).json({message: "Answer Added"});
+            const added = await userLogin.addAnswer(answer, newScore, quizEnded);                  
+            return res.status(201).json({message: "Answer Added", score: newScore});
 
         }else{
             return res.status(422).json({error: "Invalid Credentials"});

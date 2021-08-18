@@ -26,7 +26,7 @@ const Signin = () => {
             history.push("/");
         }
         else{
-            window.alert("Invalid Creddentials");
+            window.alert(data.error);
         }
     }
 

@@ -39,8 +39,7 @@ const Signup = () => {
             console.log("valid Registeration");
             history.push("/Signin");
         }else{
-            window.alert("Invalid Registeration");
-            console.log("Invalid Registeration");
+            window.alert(data.error);
         }
     }
 
