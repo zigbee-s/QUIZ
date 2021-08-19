@@ -35,7 +35,7 @@ const Signup = () => {
         console.log(data);
 
         if(data.message === "user registered succesfully"){
-            window.alert("valid Registeration");
+            window.alert("Registeration succesfull");
             console.log("valid Registeration");
             history.push("/Signin");
         }else{

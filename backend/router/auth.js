@@ -84,8 +84,11 @@ router.post('/answer', async (req,res)=>{
         
         const userLogin = await User.findOne({email:email});
         if(userLogin){
+            if(userLogin.answers.length == 4){
+                quizEnded = true;
+            }
             const added = await userLogin.addAnswer(answer, newScore, quizEnded);                  
-            return res.status(201).json({message: "Answer Added", score: newScore});
+            return res.status(201).json({message: "Answer Added", score: newScore, data: quizEnded, currentIndex: added - 1});
 
         }else{
             return res.status(422).json({error: "Invalid Credentials"});
@@ -95,5 +98,11 @@ router.post('/answer', async (req,res)=>{
         console.log(err);
     }
 }) 
+
+router.get('/signout', (req,res) => {
+    console.log("fghjk");
+    res.clearCookie('jwtoken', { path: '/'});
+    res.status(200).send('User Signed Out');
+})
 
 module.exports = router;

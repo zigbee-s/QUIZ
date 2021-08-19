@@ -8,6 +8,7 @@ const Navbar = () => {
             <NavLink to="/signin" style={{fontSize: "15px", fontWeight: "600", textTransform: "uppercase", display:"inline-block", textAlign:"center", backgroundColor:"#04AA6D", color:"white",padding: "5px 12px", margin: "10px", borderRadius:"4px" }}>Sign in</NavLink>
             <NavLink to="/register" style={{fontSize: "15px", fontWeight: "600", textTransform: "uppercase", display:"inline-block", textAlign:"center", backgroundColor:"#04AA6D", color:"white",padding: "5px 12px",  margin: "10px", borderRadius:"4px" }}>Sign up</NavLink>
             <NavLink to="/quiz" style={{fontSize: "15px", fontWeight: "600", textTransform: "uppercase", display:"inline-block", textAlign:"center", backgroundColor:"#04AA6D", color:"white",padding: "5px 12px",  margin: "10px", borderRadius:"4px" }}>Quiz</NavLink>
+            <NavLink to="/signout" style={{fontSize: "15px", fontWeight: "600", textTransform: "uppercase", display:"inline-block", textAlign:"center", backgroundColor:"#04AA6D", color:"white",padding: "5px 12px",  margin: "10px", borderRadius:"4px" }}>Signout</NavLink>
         </div>
     )
 }

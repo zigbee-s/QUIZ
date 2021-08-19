@@ -2,8 +2,6 @@ import React from 'react'
 
 export const Questionaire = ({PostAnswer, data: {question, choices}}) => {   
 
-    console.log(question);
-
     return (
         <div>
             <h1>{question}</h1> 

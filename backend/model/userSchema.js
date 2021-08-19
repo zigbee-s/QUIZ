@@ -81,10 +81,15 @@ userSchema.methods.generateAuthToken = async function(){
 
 userSchema.methods.addAnswer = async function(answer, newScore, quizEnded){
     try{
+        console.log("1" +this.answers.length);
         this.answers = this.answers.concat({answer:answer});
-        this.score = newScore;
-        this.quizEnded = quizEnded;
+        this.score = newScore;   
+        console.log("2" +this.answers.length);
+        if(this.answers.length == 4){
+            this.quizEnded = true;
+        }
         await this.save();
+        return this.answers.length;
     }catch(err){
         console.log(err);
     }
