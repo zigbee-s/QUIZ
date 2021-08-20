@@ -1,7 +1,10 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useContext} from 'react';
 import { useHistory } from 'react-router';
+import {UserContext} from '../App';
+
 
 const Signout = () => {
+    const {state, dispatch} = useContext(UserContext); 
 
     const history = useHistory();
     //promises
@@ -14,6 +17,7 @@ const Signout = () => {
             },
             credentials: "include"
         }).then((res) => {
+                dispatch({type: "USER", payload: false});
                 history.push('/Signin', {replace: true});
                 window.alert("Signed out");
                 if(res.status != 200){

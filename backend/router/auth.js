@@ -22,7 +22,7 @@ router.post('/signin', async(req,res)=>{
         if(userLogin){
             const isMatch = await bcrypt.compare(password,userLogin.password);
             const token = await userLogin.generateAuthToken();
-
+            const updateSignInState = await userLogin.signInState(true);
 
             res.cookie("jwtoken", token, {
                 expires: new Date(Date.now() + 15000000),
@@ -99,10 +99,16 @@ router.post('/answer', async (req,res)=>{
     }
 }) 
 
-router.get('/signout', (req,res) => {
-    console.log("fghjk");
-    res.clearCookie('jwtoken', { path: '/'});
-    res.status(200).send('User Signed Out');
+router.get('/signout',authenticate, (req,res) => {
+
+    
+    req.rootUser.signInState(false).then((resp)=>{
+        res.clearCookie('jwtoken', { path: '/'});
+        res.status(200).send('User Signed Out');
+    }).catch((err)=>{
+        console.log(err);
+    })
+   
 })
 
 module.exports = router;

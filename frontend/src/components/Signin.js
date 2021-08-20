@@ -1,7 +1,11 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
+import {UserContext} from '../App';
+
 
 const Signin = () => {
+
+    const {state, dispatch} = useContext(UserContext); 
     const history = useHistory();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -22,6 +26,7 @@ const Signin = () => {
 
         const data = await res.json();
         if(data.message === "Succesfull Login"){
+            dispatch({type: "USER", payload: true});
             window.alert("Login Succesfull");
             history.push("/");
         }

@@ -45,6 +45,10 @@ const userSchema= new mongoose.Schema({
         type: Boolean,
         default:false
     },
+    userState: {
+        type: Boolean,
+        default:false
+    },
     date: {
         type: Date,
         default: Date.now
@@ -74,6 +78,16 @@ userSchema.methods.generateAuthToken = async function(){
         this.tokens = this.tokens.concat({token:token});
         await this.save();
         return token;
+    }catch(err){
+        console.log(err);
+    }
+}
+
+userSchema.methods.signInState = async function(signInState){
+    try{
+        this.userState = signInState;
+        await this.save();
+        return signInState;
     }catch(err){
         console.log(err);
     }
