@@ -1,10 +1,10 @@
-import React, {useState} from 'react'
-import {useHistory } from 'react-router-dom';
+import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom';
 
 const Signup = () => {
     const history = useHistory();
     const [user, setUser] = useState({
-        name:"", email:"", password:"", cpassword:""
+        name: "", email: "", password: "", cpassword: ""
     });
 
     let name, value;
@@ -12,13 +12,13 @@ const Signup = () => {
         name = e.target.name;
         value = e.target.value;
 
-        setUser({...user, [name]:value});
+        setUser({ ...user, [name]: value });
     }
 
-    const PostData = async (e) =>{
+    const PostData = async (e) => {
         e.preventDefault();
-        const { name, email, password, cpassword} = user;
-        
+        const { name, email, password, cpassword } = user;
+
         const res = await fetch("/register", {
             method: "POST",
             headers: {
@@ -26,7 +26,7 @@ const Signup = () => {
             },
             body: JSON.stringify({
                 name, email, password, cpassword
-            })            
+            })
         })
 
 
@@ -34,11 +34,11 @@ const Signup = () => {
 
         console.log(data);
 
-        if(data.message === "user registered succesfully"){
+        if (data.message === "user registered succesfully") {
             window.alert("Registeration succesfull");
             console.log("valid Registeration");
-            history.push("/Signin");
-        }else{
+            history.push("/login");
+        } else {
             window.alert(data.error);
         }
     }
@@ -46,41 +46,41 @@ const Signup = () => {
     return (
         <>
             <h1>Sign Up</h1>
-            <div className = "signup">
-                <form method="POST">
-                    <div> 
-                        <label htmlFor ="name"></label>
-                        <input type = "text" name="name" placeholder="Your Name " autoComplete= "off" 
-                            value = {user.name}
-                            onChange = {handleInputs} 
+            <div className="signup">
+                <form>
+                    <div>
+                        <label htmlFor="name"></label>
+                        <input type="text" name="name" placeholder="Your Name " autoComplete="off"
+                            value={user.name}
+                            onChange={handleInputs}
                         />
                     </div>
 
-                    <div> 
-                        <label htmlFor ="email"></label>
-                        <input type = "text" name="email" placeholder="Your Email " autocpmlete= "off" 
-                            value = {user.email}
-                            onChange = {handleInputs} 
+                    <div>
+                        <label htmlFor="email"></label>
+                        <input type="text" name="email" placeholder="Your Email " autocpmlete="off"
+                            value={user.email}
+                            onChange={handleInputs}
                         />
                     </div>
 
-                    <div> 
-                        <label htmlFor ="password"></label>
-                        <input type = "password" name="password" placeholder="Your Password " autocpmlete= "off" 
-                            value = {user.password}
-                            onChange = {handleInputs} 
+                    <div>
+                        <label htmlFor="password"></label>
+                        <input type="password" name="password" placeholder="Your Password " autocpmlete="off"
+                            value={user.password}
+                            onChange={handleInputs}
                         />
                     </div>
 
-                    <div> 
-                        <label htmlFor ="cpassword"></label>
-                        <input type = "password" name="cpassword" placeholder="Confirm Password " autocpmlete= "off" 
-                            value = {user.cpassword}
-                            onChange = {handleInputs} 
+                    <div>
+                        <label htmlFor="cpassword"></label>
+                        <input type="password" name="cpassword" placeholder="Confirm Password " autocpmlete="off"
+                            value={user.cpassword}
+                            onChange={handleInputs}
                         />
                     </div>
                     <div className='register'>
-                    <button type="submit" name="signup" onClick = {PostData}>Register</button>
+                        <button type="submit" name="signup" onClick={PostData}>Register</button>
                     </div>
                 </form>
             </div>
