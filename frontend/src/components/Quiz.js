@@ -5,11 +5,21 @@ import quesData from "../data/questions";
 
 
 const Quiz = () => {
+    //store all user data
     const [user, setUser] = useState({});
+
+    //Store questions 
     const [questions, setQuestions] = useState(quesData);
+    
+    //Store index of the current question
     const [currentIndex, setCurrentIndex] = useState(0);
+
+    //Store the current score
     const [score, setScore] = useState(0);
+
+    //Store the state of the quiz
     const [quizEnded, setQuizEnded] = useState(false);
+
     const history = useHistory();
 
     const callQuizPage = async () => {
@@ -101,10 +111,6 @@ const Quiz = () => {
             history.push('/signin');
             console.log(error);
         }
-
-
-
-
     }
 
     useEffect(() => {

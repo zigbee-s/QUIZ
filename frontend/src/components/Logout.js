@@ -7,7 +7,8 @@ const Logout = () => {
     const { state, dispatch } = useContext(UserContext);
 
     const history = useHistory();
-    //promises
+
+    //promises 
     useEffect(() => {
         fetch('/signout', {
             method: "GET",
@@ -17,15 +18,20 @@ const Logout = () => {
             },
             credentials: "include"
         }).then((res) => {
+            
+            //Changing USER to false, to switch navbar accordingly
             dispatch({ type: "USER", payload: false });
-            history.push('/Signin', { replace: true });
+            
             window.alert("Signed out");
+            history.push('/login', { replace: true });
+            
             if (res.status != 200) {
                 const error = new Error(res.error);
                 throw error;
             }
-        }).catch((err) => {
-            console.log(err);
+            
+        }).catch((error) => {
+            console.log(error);
         })
     }, [])
 

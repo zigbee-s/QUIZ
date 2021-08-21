@@ -6,7 +6,10 @@ import { UserContext } from '../App';
 const Navbar = () => {
     const { state, dispatch } = useContext(UserContext);
 
+
     const getState = async () => {
+        
+        //Checking state from the backend
         try {
             const response = await fetch('/user', {
                 method: "GET",
@@ -25,7 +28,6 @@ const Navbar = () => {
             }
 
             if (data.userState) {
-                console.log("here");
                 dispatch({ type: "USER", payload: true });
             }
         } catch (error) {
