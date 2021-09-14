@@ -27,10 +27,9 @@ code {
   width: 100%;
   
 } */
-
+/* 
 .nav
 {
-  /* border: 1px solid #121314; */
     float: right;
     overflow: hidden;
     width:100%;
@@ -39,7 +38,7 @@ code {
     justify-content: space-between;
     margin-right: 55px;
 
-}
+} */
 /* .nav a{
   padding: 10px;
   color: red;
@@ -49,7 +48,7 @@ code {
   padding: 10px;
   min-width: 400px
 } */
-button {
+/* button {
   background-color: #04AA6D;
   color: white;
   padding: 14px 18px;
@@ -59,15 +58,9 @@ button {
   cursor: pointer;
   min-width: 400px;
   border-radius: 14px;
-  /* align-items: center;
-  align-content: center;
-  justify-content: center;
-  left: 50%; */
-}
-/* button:hover {
-  opacity: 1.2;
+
 } */
-input[type=text], input[type=password] {
+/* input[type=text], input[type=password] {
   min-width: 400px;
   padding: 12px 20px;
   margin: 8px 42.5em;
@@ -100,4 +93,4 @@ a{
   align-items: center;
 
   margin-left: 34.7em;
-}
+} */

@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom';
+import {Form, Button} from 'react-bootstrap';
+import './CSS Files/signup.css';
 
 const Signup = () => {
     const history = useHistory();
@@ -45,8 +47,9 @@ const Signup = () => {
 
     return (
         <>
-            <h1>Sign Up</h1>
-            <div className="signup">
+            <section className = 'container box-shadow'>
+            <h2>Sign Up</h2>
+            {/* <div className="signup">
                 <form>
                     <div>
                         <label htmlFor="name"></label>
@@ -83,7 +86,39 @@ const Signup = () => {
                         <button type="submit" name="signup" onClick={PostData}>Register</button>
                     </div>
                 </form>
-            </div>
+            </div> */}
+
+<Form>
+<Form.Group className="mb-3" controlId="formBasicEmail">
+    <Form.Label>Name</Form.Label>
+    <Form.Control type="text" name="name" placeholder="Your Name " autoComplete="off"
+                            value={user.name}
+                            onChange={handleInputs}/>
+  </Form.Group>
+  <Form.Group className="mb-3" controlId="formBasicEmail">
+    <Form.Label>Email address</Form.Label>
+    <Form.Control type="email"name="email" placeholder="Your Email " autocpmlete="off"
+                            value={user.email}
+                            onChange={handleInputs}/>
+  </Form.Group>
+
+  <Form.Group className="mb-3" controlId="formBasicPassword">
+    <Form.Label>Password</Form.Label>
+    <Form.Control type="password" name="password" placeholder="Your Password " autocpmlete="off"
+                            value={user.password}
+                            onChange={handleInputs}/>
+  </Form.Group>
+  <Form.Group className="mb-3" controlId="formBasicPassword">
+    <Form.Label>Confirm Password</Form.Label>
+    <Form.Control type="password" name="cpassword" placeholder="Confirm Password " autocpmlete="off"
+                            value={user.cpassword}
+                            onChange={handleInputs}/>
+  </Form.Group>
+  <Button variant="primary" type="submit"  name="signup" className = 'button-register' onClick={PostData}>
+    Register
+  </Button>
+</Form>
+</section>
         </>
     )
 }

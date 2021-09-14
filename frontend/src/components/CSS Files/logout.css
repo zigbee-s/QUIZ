@@ -1,0 +1,10 @@
+.signOut
+{
+    top: 40%;
+    position: absolute;
+    left: 35%;
+    width: 400px !important;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

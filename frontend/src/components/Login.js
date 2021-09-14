@@ -1,7 +1,8 @@
 import React, { useState, useContext } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import { UserContext } from '../App';
-
+import {Form, Button} from 'react-bootstrap';
+import './CSS Files/login.css';
 
 const Login = () => {
 
@@ -47,7 +48,7 @@ const Login = () => {
     
     return (
         <>
-            <h1>Login</h1>
+            {/* <h1>Login</h1>
             <form>
                 <div className='container'>
                     <label htmlFor="email"></label>
@@ -68,7 +69,29 @@ const Login = () => {
                     <br />
                     <NavLink to="/register" style={{ marginLeft: "17px" }}>Create an Account</NavLink>
                 </div>
-            </form>
+            </form> */}
+            <section className = 'containerLogin box-shadow'>
+<h2>LOGIN</h2>
+<Form>
+  <Form.Group className="mb-3" controlId="formBasicEmail">
+    <Form.Label>Email address</Form.Label>
+    <Form.Control type="text"  name="email" placeholder="Enter Email " autoComplete="off"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)} />
+  </Form.Group>
+
+  <Form.Group className="mb-3" controlId="formBasicPassword">
+    <Form.Label>Password</Form.Label>
+    <Form.Control type="password" name="password" placeholder="Enter Password " autoComplete="off"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}/>
+  </Form.Group>
+  <Button variant="primary" type="submit" name="signup" className = 'button' onClick={loginUser}>
+    Login
+  </Button>
+  <NavLink to="/register" style={{ marginLeft: "17px" }}>Create an Account</NavLink>
+</Form>
+</section>
         </>
     )
 }

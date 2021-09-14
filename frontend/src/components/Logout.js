@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from 'react';
 import { useHistory } from 'react-router';
 import { UserContext } from '../App';
-
+import './CSS Files/logout.css';
 
 const Logout = () => {
     const { state, dispatch } = useContext(UserContext);
@@ -37,7 +37,7 @@ const Logout = () => {
 
     return (
         <>
-            <h1>Siign out page</h1>
+            <h1 className = 'signOut'>You've signed out!</h1>
         </>
     )
 }

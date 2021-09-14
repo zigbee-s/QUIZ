@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { UserContext } from '../App';
-
+import './CSS Files/Navbar.css';
 
 const Navbar = () => {
     const { state, dispatch } = useContext(UserContext);
@@ -41,20 +41,32 @@ const Navbar = () => {
 
         if (state) {
             return (
-                <div className='nav' style={{ alignItems: "right" }}>
-                    <NavLink to="/" style={{ fontSize: "15px", fontWeight: "600", textTransform: "uppercase", display: "inline-block", textAlign: "center", backgroundColor: "#04AA6D", color: "white", padding: "5px 12px", margin: "10px", borderRadius: "4px" }}>Home</NavLink>
-                    <NavLink to="/quiz" style={{ fontSize: "15px", fontWeight: "600", textTransform: "uppercase", display: "inline-block", textAlign: "center", backgroundColor: "#04AA6D", color: "white", padding: "5px 12px", margin: "10px", borderRadius: "4px" }}>Quiz</NavLink>
-                    <NavLink to="/logout" style={{ fontSize: "15px", fontWeight: "600", textTransform: "uppercase", display: "inline-block", textAlign: "center", backgroundColor: "#04AA6D", color: "white", padding: "5px 12px", margin: "10px", borderRadius: "4px" }}>Logout</NavLink>
+                // <div className='nav' style={{ alignItems: "right" }}>
+                //     <NavLink to="/" style={{ fontSize: "15px", fontWeight: "600", textTransform: "uppercase", display: "inline-block", textAlign: "center", backgroundColor: "#04AA6D", color: "white", padding: "5px 12px", margin: "10px", borderRadius: "4px" }}>Home</NavLink>
+                //     <NavLink to="/quiz" style={{ fontSize: "15px", fontWeight: "600", textTransform: "uppercase", display: "inline-block", textAlign: "center", backgroundColor: "#04AA6D", color: "white", padding: "5px 12px", margin: "10px", borderRadius: "4px" }}>Quiz</NavLink>
+                //     <NavLink to="/logout" style={{ fontSize: "15px", fontWeight: "600", textTransform: "uppercase", display: "inline-block", textAlign: "center", backgroundColor: "#04AA6D", color: "white", padding: "5px 12px", margin: "10px", borderRadius: "4px" }}>Logout</NavLink>
+                // </div>
+                <div className = 'nav box-shadow'>
+                    <NavLink to="/">Home</NavLink>
+                    <NavLink to="/quiz">Quiz</NavLink>
+                    <NavLink to="/logout">Logout</NavLink>
                 </div>
             )
         } else {
             return (
-                <div className='nav' style={{ alignItems: "right" }}>
-                    <NavLink to="/" style={{ fontSize: "15px", fontWeight: "600", textTransform: "uppercase", display: "inline-block", textAlign: "center", backgroundColor: "#04AA6D", color: "white", padding: "5px 12px", margin: "10px", borderRadius: "4px" }}>Home</NavLink>
-                    <NavLink to="/login" style={{ fontSize: "15px", fontWeight: "600", textTransform: "uppercase", display: "inline-block", textAlign: "center", backgroundColor: "#04AA6D", color: "white", padding: "5px 12px", margin: "10px", borderRadius: "4px" }}>Log in</NavLink>
-                    <NavLink to="/signup" style={{ fontSize: "15px", fontWeight: "600", textTransform: "uppercase", display: "inline-block", textAlign: "center", backgroundColor: "#04AA6D", color: "white", padding: "5px 12px", margin: "10px", borderRadius: "4px" }}>Sign up</NavLink>
-                    <NavLink to="/quiz" style={{ fontSize: "15px", fontWeight: "600", textTransform: "uppercase", display: "inline-block", textAlign: "center", backgroundColor: "#04AA6D", color: "white", padding: "5px 12px", margin: "10px", borderRadius: "4px" }}>Quiz</NavLink>
-                    <NavLink to="/logout" style={{ fontSize: "15px", fontWeight: "600", textTransform: "uppercase", display: "inline-block", textAlign: "center", backgroundColor: "#04AA6D", color: "white", padding: "5px 12px", margin: "10px", borderRadius: "4px" }}>Logout</NavLink>
+                // <div className='nav' style={{ alignItems: "right" }}>
+                //     <NavLink to="/" style={{ fontSize: "15px", fontWeight: "600", textTransform: "uppercase", display: "inline-block", textAlign: "center", backgroundColor: "#04AA6D", color: "white", padding: "5px 12px", margin: "10px", borderRadius: "4px" }}>Home</NavLink>
+                //     <NavLink to="/login" style={{ fontSize: "15px", fontWeight: "600", textTransform: "uppercase", display: "inline-block", textAlign: "center", backgroundColor: "#04AA6D", color: "white", padding: "5px 12px", margin: "10px", borderRadius: "4px" }}>Log in</NavLink>
+                //     <NavLink to="/signup" style={{ fontSize: "15px", fontWeight: "600", textTransform: "uppercase", display: "inline-block", textAlign: "center", backgroundColor: "#04AA6D", color: "white", padding: "5px 12px", margin: "10px", borderRadius: "4px" }}>Sign up</NavLink>
+                //     <NavLink to="/quiz" style={{ fontSize: "15px", fontWeight: "600", textTransform: "uppercase", display: "inline-block", textAlign: "center", backgroundColor: "#04AA6D", color: "white", padding: "5px 12px", margin: "10px", borderRadius: "4px" }}>Quiz</NavLink>
+                //     <NavLink to="/logout" style={{ fontSize: "15px", fontWeight: "600", textTransform: "uppercase", display: "inline-block", textAlign: "center", backgroundColor: "#04AA6D", color: "white", padding: "5px 12px", margin: "10px", borderRadius: "4px" }}>Logout</NavLink>
+                // </div>
+                <div className = 'nav box-shadow'>
+                    <NavLink to="/">Home</NavLink>
+                    <NavLink to="/login">Login</NavLink>
+                    <NavLink to="/signup">Signup</NavLink>
+                    <NavLink to="/quiz">Quiz</NavLink>
+                    <NavLink to="/logout">Logout</NavLink>
                 </div>
             )
         }
